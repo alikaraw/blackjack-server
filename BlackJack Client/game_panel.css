@@ -1,0 +1,255 @@
+/* Panel */
+
+#ContainerPanel{
+    z-index: 2;
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    height: var(--panel-height);
+    background-color: gray;
+    border-top: 3px solid black;
+}
+
+.button-3d {
+    height: 50px;
+    font-size: 23px;
+    font-weight: bold;
+    border: 3px solid black;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 900;
+    transition: box-shadow 0.1s 0s;
+    box-shadow: -2px 5px black;
+    cursor: pointer;
+}
+
+.button-3d:hover {
+    transform: translateY(1.5px);
+    box-shadow: -2px 3.5px black;
+}
+
+.button-3d:active{
+    transform: translateY(3px);
+    box-shadow: -2px 2px black;
+}
+
+.button-3d:disabled{
+    transform: translateY(3px);
+    box-shadow: -2px 2px black;
+    background-color: rgb(184, 184, 184) !important;
+    color: black;
+    cursor: default;
+} 
+
+/* Panel - Player Information Section */
+
+#ContainerPlayerInformationPanel {
+    background-color: rgb(255, 255, 255);
+    border: 3px solid black;
+    height: 85%;
+    margin: auto 0;
+    width: 17%;
+    border-radius: 5px;
+    box-shadow: -3px 3px rgb(48, 48, 48);
+    text-align: center;
+    padding-bottom: 7px;
+}
+
+#ContainerPlayerInformationPanel > :first-child {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 22px;
+    margin: 7px 13px;
+}
+
+#pPanelPlayerName ,
+#pPanelPlayerBalance {
+    margin: 0;
+}
+
+#ContainerPlayerRunInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#ContainerPlayerRunInfoHands {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.ContainerPlayerRunInfoHand {
+    border-radius: 5px;
+    border: 2px solid rgba(73, 72, 72, 0.341);
+    background-color: #c5c5c5;
+    padding: 10px;
+}
+
+.ContainerPlayerRunInfoHand * {
+    font-size: 20px;
+    margin: 0;
+    text-align: start;
+}
+
+.ContainerPlayerRunInfoHand > :first-child{
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+}
+
+#ContainerPlayerRunInfo > :last-child {
+    border: 2px solid rgba(73, 72, 72, 0.341);
+    background-color: #c5c5c5;
+    width: 90%;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 5px 0;
+    margin: 10px 0;
+}
+
+.spanPlayerRunInfoBet,
+.spanPlayerRunInfoPoints,
+#spanPlayerRunInfoInsurance{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Buttons Panel */
+
+#ContainerActionButtons{
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+}
+
+.action-buttons-row{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.action-buttons-row * {
+    height: 65px !important;
+    width: 250px;
+}
+
+.action-buttons-row + .action-buttons-row {
+    margin-top: 25px;
+}
+
+#btnSurrender{
+    background-color: #FF6961;
+}
+
+#btnSurrender:hover{
+    background-color: #D45750;
+}
+
+#btnSurrender:active{
+    background-color: #D45750;
+}
+
+#btnNextPlayer{
+    background-color: lightgreen;
+    font-size: 24px;
+    height: 70px;
+    width: 300px;
+    margin: auto;
+}
+
+/* Panel: Bets Section */
+
+#ContainerBets,
+#ContainerGameButtons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 70%;
+}
+
+#ContainerPickBet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#ContainerPickBet > :first-child{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#btnBetReset,
+#btnBetAllIn {
+    width: 40%;
+}
+
+#ContainerChips{
+    margin-top: 15px;
+    display: flex;
+    height: 95px;
+    background-color: lightgray;
+    padding: 10px;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: -3px 3px rgb(48, 48, 48);
+}
+
+.chip{
+    position: relative;
+    border: 1px solid black;
+    border-radius: 100px;
+    width: 90px;
+    margin-right: 10px;
+    cursor: pointer;
+    box-shadow: -2.5px 2px rgb(29, 29, 29);
+    top: 0;
+    transition: top 5;
+}
+
+.chip:hover{
+    top: -5px;
+}
+
+.chip.disabled:hover{
+    top: 0;
+    cursor: default;
+}
+
+#ContainerChips :last-child{
+    margin: 0;
+}
+
+#ContainerConfirmBet{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#TextBet{
+    background-color: white;
+    margin-bottom: 3%;
+    width: 80%;
+    height: 50px;
+    text-align: center;
+    font-size: 40px;
+    border: 3px solid black;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    font-weight: 900;
+    width: 200px;
+}
+    
+#btnBetConfirm{
+    letter-spacing: 1.5px;
+    width: 350px;
+    background-color: rgb(109, 255, 109);
+}
+
+.invisible {
+    display: none !important;
+}

@@ -1,0 +1,285 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="home_page.css">
+        <link rel="stylesheet" href="home_page_play.css">
+        <link rel="stylesheet" href="home_page_rewards.css">
+        <script type="module" src="home_page.js"></script>
+        <script type="module" src="home_page_rewards.js"></script>
+        <script src="./socket.io/socket.io.js"></script>
+
+        <link rel="icon" href="images/icon.png">
+        <title>BlackJack</title>
+    </head>
+    <body>
+        <div id="ContainerFriendActions">
+            <div class="FriendsAction">
+                <i class="material-symbols-rounded"> group_add </i>
+                <p>Invite to party</p>
+            </div>
+            <div class="FriendsAction">
+                <i class="material-symbols-rounded"> person_remove </i>
+                <p>Remove friend</p>
+            </div>
+        </div>
+
+        <div id="ContainerPartyInvites">
+            <div>
+                <div>
+                    <p>Incoming Invites</p>
+                    <img id="PartyInvitesExit" src="images/x_symbol.png" alt="">
+                </div>
+                <div id="ContainerPartyInvites_List">
+                    <div class="InviteItem">
+                        <p>Player Name</p>
+                        <img src="images/reject.png">
+                        <img src="images/accpet.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ContainerFriendReq">
+            <div>
+                <img id="FriendsReqExit" src="images/x_symbol.png" alt="">
+                <h1>Friends Menu</h1>
+                <div id="FriendsReqOptions">
+                    <p id="FriendsReqSent" class="selected">
+                        Sent Requests
+                    </p>
+                    <p id="FriendsReqInc">
+                        Incoming Requests
+                    </p>
+                </div>
+                <div id="FriendsReqSentContainer">
+                    <i id="FriendReqSend" class="material-symbols-rounded"> person_add </i>
+                    <input id="FriendsReqInput" type="text" placeholder="Enter username to send friend request to">
+                    <div id="FriendsReqSentList" class="FriendsReqList">
+                        <div class="FriendReqItem">
+                            <p>Player Name</p>
+                            <img src="images/reject.png">
+                            <img src="images/accpet.png">
+                        </div>
+                        <div class="FriendReqItem">
+                            <p>Player Name</p>
+                            <img src="images/reject.png">
+                            <img src="images/accpet.png">
+                        </div>
+                        <div class="FriendReqItem">
+                            <p>Player Name</p>
+                            <img src="images/reject.png">
+                            <img src="images/accpet.png">
+                        </div>
+                        <div class="FriendReqItem">
+                            <p>Player Name</p>
+                            <img src="images/reject.png">
+                            <img src="images/accpet.png">
+                        </div>
+                    </div>
+                </div>
+                <div id="FriendsReqIncContainer" style="display: none;">
+                    <div id="FriendsReqIncList" class="FriendsReqList">
+                        <div class="FriendReqItem">
+                            <p>Player Name</p>
+                            <img src="images/reject.png">
+                            <img src="images/accpet.png">
+                        </div>
+                        <div class="FriendReqItem">
+                            <p>Player Name</p>
+                            <img src="images/reject.png">
+                            <img src="images/accpet.png">
+                        </div>
+                        <div class="FriendReqItem">
+                            <p>Player Name</p>
+                            <img src="images/reject.png">
+                            <img src="images/accpet.png">
+                        </div>
+                        <div class="FriendReqItem">
+                            <p>Player Name</p>
+                            <img src="images/reject.png">
+                            <img src="images/accpet.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="ContainerMain">
+            <div id="ContainerTopBar">
+                <img id="imgIcon" src="images/icon.png" alt="iconPicture">
+                <button id="btnPlay">Play</button>
+                <menu id="menuNavbar">
+                    <li id="liRewards"><i class="material-symbols-rounded">calendar_today</i>Daily Rewards</li>
+                </menu>
+                <p id="pUserBalance">500$</p>
+            </div>
+            <div id="ContainerMainPages">
+                <div id="ContainerPlay">
+                    <div id="ContainerPlayMain">
+                        <div id="ContainerLobby">
+                            <h1>lobby</h1>
+                            <hr>
+                            <p>Only the first player may invite, kick, change gamemode or start the game</p>
+                            <hr>
+                            <div id="ContainerLobbySpots">
+                                <div class="ContainerLobbyPlayer takenSpot">
+                                    <p class="LobbyPlayerName">Player Name</p>
+                                    <img src="images/kick_Icon.png" alt="kick_Icon">
+                                </div>
+                                <div class="ContainerLobbyPlayer takenSpot">
+                                    <p class="LobbyPlayerName">Player Name</p>
+                                    <img src="images/kick_Icon.png" alt="kick_Icon">
+                                </div>                                <div class="ContainerLobbyPlayer emptySpot">
+                                </div>
+                                <div class="ContainerLobbyPlayer emptySpot">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="casual" class="ContainerMod">
+                            <img src="images/mode_casual.png" alt="target">
+                            <h1>Casual</h1>
+                            <hr>
+                            <p>Gamble away without effecting your pocket</p>
+                            <p>Money earned in this mode isn't getting added to your wallet</p>
+                        </div>
+                        <div id="ranked" class="ContainerMod">
+                            <img src="images/mode_ranked.png" alt="target">
+                            <h1>Ranked</h1>
+                            <hr>
+                            <p>Gamble away your actual money</p>
+                            <p>Money earned in this mode is getting added to your wallet</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="btnStartGame">Start Game</button>
+                    </div>
+                </div>
+                
+                <div id="ContainerRewards">
+                    <div id="ContainerDailyRewards">
+                        <div>
+                            <h1>Daily Reward</h1>
+                            <p>Come back everyday to claim your daily <span>250$</span> reward!</p>
+                            <p>Next daily reward is avaliable in <span id="spanNextDailyReward">00 Hours 00 Minutes & 00 Seconds</span>!</p>
+                        </div>
+                        <button id="btnClaimDaily">Claim Daily</button>
+                    </div>
+
+                    <div id="ContainerWeeklyRewards">
+                        <div>
+                            <div>
+                                <h1>Weekly Rewards</h1>
+                                <p>Come back everyday and keep your streak to collect more rewards every day!</p>
+                                <p>Every <span>7 Day</span> streak will add a <span>0.5x Multiplier</span> to keep you motivated!</p>
+                                <p>Next weekly reward is avaliable in <span id="spanNextWeeklyReward">00 Hours 00 Minutes & 00 Seconds</span>!</p>
+                            </div>
+                            <p>
+                                daily login streak <span id="spanStreakDay">2 Days</span>
+                                <br>
+                                Weekly Multiplier <span id="spanWeeklyMultiplier">1.5x</span>
+                            </p>
+                        </div>
+                        <div id="ContainerWeeklyRewardsItems">
+                            <div class="WeeklyRewardItem">
+                                <div class="WeeklyRewardItemTitle">
+                                    <p>Day 1</p>
+                                    <p>(250$)</p>
+                                </div>
+                                <img src="images/example_reward.png" alt="">
+                                <div class="lockedReward">
+                                    <img src="images/lockedReward.png">
+                                </div>
+                            </div>
+                            <div class="WeeklyRewardItem">
+                                <div class="WeeklyRewardItemTitle">
+                                    <p>Day 1</p>
+                                    <p>(250$)</p>
+                                </div>
+                                <img src="images/example_reward.png" alt="">
+                                <div class="lockedReward">
+                                    <img src="images/lockedReward.png">
+                                </div>
+                            </div>
+                            <div class="WeeklyRewardItem">
+                                <div class="WeeklyRewardItemTitle">
+                                    <p>Day 1</p>
+                                    <p>(250$)</p>
+                                </div>
+                                <img src="images/example_reward.png" alt="">
+                                <div class="lockedReward">
+                                    <img src="images/lockedReward.png">
+                                </div>
+                            </div>
+                            <div class="WeeklyRewardItem">
+                                <div class="WeeklyRewardItemTitle">
+                                    <p>Day 1</p>
+                                    <p>(250$)</p>
+                                </div>
+                                <img src="images/example_reward.png" alt="">
+                                <div class="lockedReward">
+                                    <img src="images/lockedReward.png">
+                                </div>
+                            </div>
+                            <div class="WeeklyRewardItem">
+                                <div class="WeeklyRewardItemTitle">
+                                    <p>Day 1</p>
+                                    <p>(250$)</p>
+                                </div>
+                                <img src="images/example_reward.png" alt="">
+                                <div class="lockedReward">
+                                    <img src="images/lockedReward.png">
+                                </div>
+                            </div>
+                            <div class="WeeklyRewardItem">
+                                <div class="WeeklyRewardItemTitle">
+                                    <p>Day 1</p>
+                                    <p>(250$)</p>
+                                </div>
+                                <img src="images/example_reward.png" alt="">
+                                <div class="lockedReward">
+                                    <img src="images/lockedReward.png">
+                                </div>
+                            </div>
+                            <div class="WeeklyRewardItem">
+                                <div class="WeeklyRewardItemTitle">
+                                    <p>Day 1</p>
+                                    <p>(250$)</p>
+                                </div>
+                                <img src="images/example_reward.png" alt="">
+                                <div class="lockedReward">
+                                    <img src="images/lockedReward.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="ContainerSidebar">
+            <div id="ContainerPlayerInfo">
+                <p id="pPlayerName">Player Name</p>
+                    <div id="ContainerPlayerStatus">
+                        <i id="iToggleStatus" class="material-symbols-rounded"> radio_button_checked </i>
+                        <span id="spanPlayerStatus">Online</span>
+                    </div>
+            </div>
+            <div id="ContainerActionButtons">
+                <span>SOCIALS</span>
+                <i id="btnInvitesMenu" class="material-symbols-rounded"> mail </i>
+                <i id="btnFriendsMenu" class="material-symbols-rounded"> person_add </i>
+            </div>
+            <input type="text" id="inputSearchName" placeholder="Search friend's name...">
+            <div id="ContainerFriendsList">
+                <div class="ContainerFriend">
+                    <p class="pFriendName">Player Name</p>
+                    <div class="ContainerFriendStatus">
+                        <i class="material-symbols-rounded iFriendStatus"> radio_button_checked </i>
+                        <span class="spanFriendStatus">Online</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

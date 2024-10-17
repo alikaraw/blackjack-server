@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Vars & Others */
+:root{
+    --panel-height: 25%;
+}
+
+* {
+    font-family: Montserrat;
+    user-select: none;
+}
+
+html, body{
+    height: 100%;
+}
+
+body{
+    background-image: url(images/background2.png);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    overflow-y: hidden;
+}
+
+/* Overlay Container */
+
+.isOnScreen {
+    bottom: 25% !important;
+}
+
+#btnExit {
+    width: 100px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: lightcoral;
+}
+
+#containerOverlay{
+    position: fixed;
+    bottom: 100%;
+    width: 85%;
+    height: calc(100% - var(--panel-height));
+    z-index: 1;
+    background-color: lightgray;
+    transition: bottom 2s;
+}
+
+#startRoundMessage{
+    display: flex;
+    font-weight: bold;
+    font-size: 30px;
+    justify-content: center;
+    margin: 250px;
+}
+
+#containerOverlaySummery{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+}
+
+#containerOverlaySummery > :first-child{
+    background-color: white;
+    margin-top: 10px;
+    border: 3px solid black;
+    border-radius: 5px;
+    width: 350px;
+    padding-top: 5px;
+    height: 35px;
+    font-size: 25px;
+    box-shadow: -3px 3px rgb(48, 48, 48);
+}
+
+#containerOverlayDealer {
+    width: fit-content;
+    background-color: gray;
+    border: 3px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 3px;
+    font-size: 22px;
+    box-shadow: -3px 3px rgb(48, 48, 48);
+}
+
+#containerOverlayDealer > :first-child{
+    margin: 0 5px;
+}
+
+#containerSummaryCards{
+    background-color: rgb(184, 183, 183);
+    border: 3px solid black;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+    padding-top: 10px;
+}
+
+#containerSummaryCards * {
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 100px;
+    margin: 0 3px;
+}
+
+#containerOverlayPlayers{
+    display: flex;
+}
+
+.containerOverlayPlayer,
+.containerOverlayPlayerInfo,
+.containerOverlayPlayerInfo > :not(:first-child) {
+    border: 3px solid black;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.containerOverlayPlayerInfo > :first-child {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: px;
+}
+
+.containerOverlayPlayer{
+    background-color: rgb(122, 239, 149);
+    box-shadow: -3px 3px rgb(48, 48, 48);
+}
+
+.containerOverlayPlayer > :first-child{
+    font-size: 20px;
+    margin: 5px;
+}
+
+.containerOverlayPlayer > * {
+    font-size: 16px;
+}
+
+.containerOverlayPlayerInfo{
+    background-color: gray;
+}
+
+.containerOverlayPlayerInfo > :not(:first-child),
+.containerOverlayPlayerHand{
+    background-color: white;
+}
+
+.containerOverlayPlayerHand {
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 5px;
+}
+
+.containerOverlayPlayerHand > *{
+    margin: 5px 10px;
+}
+
+/* Game Container */
+
+#containerGame{
+    display: flex;
+    height: calc(100% - var(--panel-height));
+    justify-content: space-between;
+}
+
+#containerGame > :first-child{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+/*Player Info*/
+
+#containerPlayersInfo{
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-left: 3px solid black;
+    background-color: gray;
+    width: 15%;
+    align-items: center;
+}
+
+.playerInfo {
+    width: 80%;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 4px;
+    margin: auto;
+    background-color: lightgray;
+}
+
+.playerInfo p {
+    font-size: 19px;
+    margin: 0;
+}
+
+.playerInfo > :first-child {
+    margin: 10px 0 5px 0;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.playerInfo > :nth-child(2) {
+    margin-bottom: 10px;
+}
+
+.playerInfo > :last-child {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+}
+
+.playerInfo > :last-child > div > :first-child {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Dealer & Player */
+
+#dealerTitle, #playerTitle{
+    background-color: white;
+    width: 300px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
+#dealerTitle {
+    margin-right: 5%;
+}
+
+#playerTitle {
+    margin-left: 15% !important;
+}
+
+#dealerTitle, #dealerHand{
+    margin-left: auto;
+}
+
+#dealerHand{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 431px;
+}
+
+#playerTitle, #playerHandMain {
+    position: relative;
+    bottom: 35%;
+    margin-left: 10%;
+}
+
+#playerHandSplit {
+    position: relative;
+    bottom: 66%;
+    left: 63%; 
+}
+
+#playerHandSplit > .cards-row + .cards-row {
+    bottom: 37%;
+}
+
+/* Cards */
+
+.cards-row{
+    width: 400px;
+    height: 199px;
+    display: flex;
+}
+
+.cards-row, #playerHandMain, #playerHandSplit{
+    width: fit-content;
+}
+
+.cards-row + .cards-row {
+    position: relative;
+    bottom: 35%;
+    left: 10%;
+}
+
+.card-scene{
+    width: 137.13px;
+    height: 196.73px;
+    perspective: 1800px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: top 0.4s, bottom 0.4s, left 0.4s, right 0.4s;
+    position: relative;
+}
+
+.card{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.5s 0.25s;
+    transform-style: preserve-3d;
+}
+
+.card-flipped{
+    transform: rotateY(180deg)
+}
+
+.card-front, .card-back{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.card-front{
+    transform: rotateY(180deg);
+}
+
+.card-image{
+    width: 133px;
+    border: 2px solid black;
+    border-radius: 10px;
+}

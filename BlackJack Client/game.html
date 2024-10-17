@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="game_panel.css">
+    <script type="module" src="game.js"></script>
+    <script src="./socket.io/socket.io.js"></script>
+  
+    <link rel="icon" href="images/icon.png">
+    <title>BlackJack</title>
+  </head>
+  <body>
+    <div id="containerOverlay" class="isOnScreen">
+      <button id="btnExit" class="button-3d">Exit</button>
+      <div id="startRoundMessage">
+        <p>Place your bets to start the game</p> 
+      </div>
+      <div id="containerOverlaySummery">
+        <div>Round Summary</div>
+        <div id="containerOverlayDealer">
+          <p>Dealer (19 Points)</p>
+          <div id="containerSummaryCards">
+            <img src="images/cards/10_of_hearts.svg">
+            <img src="images/cards/10_of_hearts.svg">
+          </div>
+        </div>
+        <div id="containerOverlayPlayers">
+          <div class="containerOverlayPlayer">
+            <p>Player Name</p>
+            <div class="containerOverlayPlayerInfo">
+                <div>
+                  <div class="containerOverlayPlayerHand">
+                    Hand One
+                    <p>18 Points</p>
+                    <p>2500$ Bet</p>
+                  </div>
+                  <div class="containerOverlayPlayerHand">
+                    Hand Two
+                    <p>18 Points</p>
+                    <p>2500$ Bet</p>
+                  </div>
+                </div>
+              <div>500$ - Insurance</div>
+              <div>Total Money Lost - 2500$</div>
+              <div>Total Money Won - 2500$</div>
+              <div>New Total Balance - 2500$</div>
+            </div>
+          </div>
+          <div class="containerOverlayPlayer">
+            <p>Player Name</p>
+            <div class="containerOverlayPlayerInfo">
+                <div>
+                  <div class="containerOverlayPlayerHand">
+                    Hand One
+                    <p>18 Points</p>
+                    <p>2500$ Bet</p>
+                  </div>
+                  <div class="containerOverlayPlayerHand">
+                    Hand Two
+                    <p>18 Points</p>
+                    <p>2500$ Bet</p>
+                  </div>
+                </div>
+              <div>500$ - Insurance</div>
+              <div>Total Money Lost - 2500$</div>
+              <div>Total Money Won - 2500$</div>
+              <div>New Total Balance - 2500$</div>
+            </div>
+          </div>
+          <div class="containerOverlayPlayer">
+            <p>Player Name</p>
+            <div class="containerOverlayPlayerInfo">
+                <div>
+                  <div class="containerOverlayPlayerHand">
+                    Hand One
+                    <p>18 Points</p>
+                    <p>2500$ Bet</p>
+                  </div>
+                  <div class="containerOverlayPlayerHand">
+                    Hand Two
+                    <p>18 Points</p>
+                    <p>2500$ Bet</p>
+                  </div>
+                </div>
+              <div>500$ - Insurance</div>
+              <div>Total Money Bet - 2500$</div>
+              <div>Total Money Won - 2500$</div>
+              <div>New Total Balance - 2500$</div>
+            </div>
+          </div>
+          <div class="containerOverlayPlayer">
+            <p>Player Name</p>
+            <div class="containerOverlayPlayerInfo">
+                <div>
+                  <div class="containerOverlayPlayerHand">
+                    Hand One
+                    <p>18 Points</p>
+                    <p>2500$ Bet</p>
+                  </div>
+                  <div class="containerOverlayPlayerHand">
+                    Hand Two
+                    <p>18 Points</p>
+                    <p>2500$ Bet</p>
+                  </div>
+                </div>
+              <div>500$ - Insurance</div>
+              <div>Total Money Lost - 2500$</div>
+              <div>Total Money Won - 2500$</div>
+              <div>New Total Balance - 2500$</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="containerGame">
+      <div>
+        <p id="dealerTitle">Dealer (15 Points)</p>
+        <div id="dealerHand">
+          <div class="cards-row">
+            <div class="card-scene">
+              <div class="card">
+                <div class="card-front">
+                  <img class="card-image " src="images/cards/10_of_hearts.svg">
+                </div>
+                <div class="card-back">
+                  <img class="card-image" src="images/cards/Back.svg">
+                </div>
+              </div>
+            </div>
+            <div class="card-scene">
+              <div class="card">
+                <div class="card-front">
+                  <img class="card-image" src="images/cards/10_of_hearts.svg">
+                </div>
+                <div class="card-back">
+                  <img class="card-image" src="images/cards/Back.svg">
+                </div>
+              </div>
+            </div>
+            <div class="card-scene">
+              <div class="card">
+                <div class="card-front">
+                  <img class="card-image" src="images/cards/10_of_hearts.svg">
+                </div>
+                <div class="card-back">
+                  <img class="card-image" src="images/cards/Back.svg">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cards-row">
+            <div class="card-scene">
+              <div class="card">
+                <div class="card-front">
+                  <img class="card-image" src="images/cards/10_of_hearts.svg">
+                </div>
+                <div class="card-back">
+                  <img class="card-image" src="images/cards/Back.svg">
+                </div>
+              </div>
+            </div>
+            <div class="card-scene">
+              <div class="card">
+                <div class="card-front">
+                  <img class="card-image" src="images/cards/10_of_hearts.svg">
+                </div>
+                <div class="card-back">
+                  <img class="card-image" src="images/cards/Back.svg">
+                </div>
+              </div>
+            </div>
+            <div class="card-scene">
+              <div class="card">
+                <div class="card-front">
+                  <img class="card-image" src="images/cards/10_of_hearts.svg">
+                </div>
+                <div class="card-back">
+                  <img class="card-image" src="images/cards/Back.svg">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p id="playerTitle">Ali (15 Points) </p>
+        <div id="playerHandMain">
+          <div class="cards-row">
+            <div class="card-scene">
+              <div class="card">
+                <div class="card-front">
+                  <img class="card-image" src="images/cards/10_of_hearts.svg">
+                </div>
+                <div class="card-back">
+                  <img class="card-image" src="images/cards/Back.svg">
+                </div>
+              </div>
+            </div>
+            <div class="card-scene">
+              <div class="card">
+                <div class="card-front">
+                  <img class="card-image" src="images/cards/10_of_hearts.svg">
+                </div>
+                <div class="card-back">
+                  <img class="card-image" src="images/cards/Back.svg">
+                </div>
+              </div>
+            </div>
+            <div class="card-scene">
+              <div class="card">
+                <div class="card-front">
+                  <img class="card-image" src="images/cards/10_of_hearts.svg">
+                </div>
+                <div class="card-back">
+                  <img class="card-image" src="images/cards/Back.svg">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class=cards-row>
+            <div class="card-scene">
+              <div class="card">
+                <div class="card-front">
+                  <img class="card-image" src="images/cards/10_of_hearts.svg">
+                </div>
+                <div class="card-back">
+                  <img class="card-image" src="images/cards/Back.svg">
+                </div>
+              </div>
+            </div>
+            <div class="card-scene">
+              <div class="card">
+                <div class="card-front">
+                  <img class="card-image" src="images/cards/10_of_hearts.svg">
+                </div>
+                <div class="card-back">
+                  <img class="card-image" src="images/cards/Back.svg">
+                </div>
+              </div>
+            </div>
+            <div class="card-scene">
+              <div class="card">
+                <div class="card-front">
+                  <img class="card-image" src="images/cards/10_of_hearts.svg">
+                </div>
+                <div class="card-back">
+                  <img class="card-image" src="images/cards/Back.svg">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="playerHandSplit">
+          <div class="cards-row">
+            <div class="card-scene">
+              <div class="card card-flipped">
+                <div class="card-front">
+                  <img class="card-image" src="images/cards/10_of_hearts.svg">
+                </div>
+                <div class="card-back">
+                  <img class="card-image" src="images/cards/Back.svg">
+                </div>
+              </div>
+            </div>
+            <div class="card-scene">
+              <div class="card card-flipped">
+                <div class="card-front">
+                  <img class="card-image" src="images/cards/10_of_hearts.svg">
+                </div>
+                <div class="card-back">
+                  <img class="card-image" src="images/cards/Back.svg">
+                </div>
+              </div>
+            </div>
+            <div class="card-scene">
+              <div class="card card-flipped">
+                <div class="card-front">
+                  <img class="card-image" src="images/cards/10_of_hearts.svg">
+                </div>
+                <div class="card-back">
+                  <img class="card-image" src="images/cards/Back.svg">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class=cards-row>
+            <div class="card-scene">
+              <div class="card card-flipped">
+                <div class="card-front">
+                  <img class="card-image" src="images/cards/10_of_hearts.svg">
+                </div>
+                <div class="card-back">
+                  <img class="card-image" src="images/cards/Back.svg">
+                </div>
+              </div>
+            </div>
+            <div class="card-scene">
+              <div class="card card-flipped">
+                <div class="card-front">
+                  <img class="card-image" src="images/cards/10_of_hearts.svg">
+                </div>
+                <div class="card-back">
+                  <img class="card-image" src="images/cards/Back.svg">
+                </div>
+              </div>
+            </div>
+            <div class="card-scene">
+              <div class="card card-flipped">
+                <div class="card-front">
+                  <img class="card-image" src="images/cards/10_of_hearts.svg">
+                </div>
+                <div class="card-back">
+                  <img class="card-image" src="images/cards/Back.svg">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="containerPlayersInfo">
+        <div class="playerInfo">
+          <p>Player Name</p>
+          <p>0000$</p>
+          <div>
+            <div>
+              <p>Wins</p>
+              <p>0</p>
+            </div>
+            <div>
+              <p>Loses</p>
+              <p>0</p>
+            </div>
+          </div>
+        </div>
+        <div class="playerInfo">
+          <p>Player Name</p>
+          <p>0000$</p>
+          <div>
+            <div>
+              <p>Wins</p>
+              <p>0</p>
+            </div>
+            <div>
+              <p>Loses</p>
+              <p>0</p>
+            </div>
+          </div>
+        </div>
+        <div class="playerInfo">
+          <p>Player Name</p>
+          <p>0000$</p>
+          <div>
+            <div>
+              <p>Wins</p>
+              <p>0</p>
+            </div>
+            <div>
+              <p>Loses</p>
+              <p>0</p>
+            </div>
+          </div>
+        </div>
+        <div class="playerInfo">
+          <p>Player Name</p>
+          <p>0000$</p>
+          <div>
+            <div>
+              <p>Wins</p>
+              <p>0</p>
+            </div>
+            <div>
+              <p>Loses</p>
+              <p>0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="ContainerPanel">
+      <div id="ContainerPlayerInformationPanel">
+        <div>
+          <p id="pPanelPlayerName">PlayerName</p>
+          <p id="pPanelPlayerBalance">500$</p>
+        </div>
+        <div id="ContainerPlayerRunInfo">
+          <div id="ContainerPlayerRunInfoHands">
+            <div class="ContainerPlayerRunInfoHand">
+              <p>Hand One</p>
+              <p>Bet <span class="spanPlayerRunInfoBet">1000</span></p>
+              <p>Points <span class="spanPlayerRunInfoPoints">22</span></p>
+            </div>
+            <div class="ContainerPlayerRunInfoHand">
+              <p>Hand Two</p>
+              <p>Bet <span class="spanPlayerRunInfoBet">500</span></p>
+              <p>Points <span class="spanPlayerRunInfoPoints">24</span></p>
+            </div>
+          </div>
+          <p>Insurance <span id="spanPlayerRunInfoInsurance">500</span></p>
+        </div>
+      </div>
+      <div id="ContainerBets">
+        <div id="ContainerPickBet">
+          <div>
+            <button id="btnBetReset" class="button-3d" >Reset Bet</button>
+            <button id="btnBetAllIn" class="button-3d" >All In</button>
+          </div>
+          <div id="ContainerChips">
+            <img class="chip" src="images/chip_1.png">
+            <img class="chip" src="images/chip_5.png">
+            <img class="chip" src="images/chip_10.png">
+            <img class="chip" src="images/chip_25.png">
+            <img class="chip" src="images/chip_100.png">
+            <img class="chip" src="images/chip_500.png">
+          </div>
+        </div>
+        <div id="ContainerConfirmBet">
+          <div id="TextBet">500$</div>
+          <button id="btnBetConfirm" class="button-3d">Confirm bet</button>
+        </div>
+      </div>
+      <div id="ContainerGameButtons" class="invisible">
+        <div id="ContainerActionButtons">
+          <div class="action-buttons-row">
+            <button id="btnHit" class="button-3d">Hit</button>
+            <button id="btnStand" class="button-3d">Stand</button>
+            <button id="btnSurrender" class="button-3d">Surrender</button>
+          </div>
+          <div class="action-buttons-row">
+            <button id="btnDouble" class="button-3d">Double Down</button>
+            <button id="btnSplit" class="button-3d">Split</button>
+            <button id="btnInsurance" class="button-3d">insurance</button>
+          </div>
+        </div>
+        <button id="btnNextPlayer" class="button-3d">Next Player</button>
+      </div>
+    </div>
+  </body>
+</html>

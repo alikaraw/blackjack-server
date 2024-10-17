@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        <link rel="stylesheet" href="authentication.css">
+        <script type="module" src="authentication.js"></script>
+        
+        <link rel="icon" href="images/icon.png">
+        <title>BlackJack</title>
+    </head>
+    <body>
+        <div class="card-scene">
+            <div class="card card-flipped">
+                <div class="card-front">
+                    <form class="container">
+                        <h1>Sign In</h1>
+                        <image src="images/icon.png" class="image-icon"></image>
+                        <input id="inputLogin_Username" type="text" placeholder="Username">
+                        <div class="togglePassword">
+                            <input id="inputLogin_Password" type="password" placeholder="Password">
+                            <i class="material-symbols-outlined">visibility_off</i>
+                        </div>
+                        <div class="ContainerNotice" id="ContainerLogin_Notice">   
+                            <p><span class="material-symbols-outlined"> error </span> NOTICE</p>
+                            <p id="pLogin_Message">Email or Password is incorrect</p>
+                        </div>
+                        <button type="button" id="btnLogin">Login</button>
+                        <a>Don't have an account? <span>Register now</span></a>
+                    </form>
+                    <form class="container">
+                        <h1>Create Account</h1>
+                        <image src="images/icon.png" class="image-icon" style="width: 170px;"></image>
+                        <input id="inputSignUp_Username" type="text" placeholder="Username">
+                        <div class="togglePassword">
+                            <input id="inputSignUp_Password" type="password" placeholder="Password">
+                            <i class="material-symbols-outlined">visibility_off</i>
+                        </div>
+                        <div class="togglePassword">
+                            <input id="inputSignUp_RePassword" type="password" placeholder="Confirm Password">
+                            <i class="material-symbols-outlined">visibility_off</i>
+                        </div>
+                        <div class="ContainerNotice" id="ContainerSignup_Notice">   
+                            <p><span class="material-symbols-outlined"> error </span> NOTICE</p>
+                            <p id="pSignup_Message">Email or Password is incorrect</p>
+                        </div>
+                        <button type="button" id="btnSignUp">Sign Up</button>
+                        <a>Already have an account? <span>Login now</span></a>
+                    </form>
+                </div>
+                <div class="card-back">
+                    <img class="card-image" src="images/cards/Back.svg">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Montserrat;
+    user-select: none;
+}
+
+body {
+    background-image: url(images/login_background.jpeg);
+    background-size: cover;
+    display: flex;
+    align-items: start;
+    margin-left: 30vh;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.card-scene {
+    width: 377.54px;
+    height: 550px;
+    perspective: 1800px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: top 0.4s, bottom 0.4s, left 0.4s, right 0.4s;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.5s 0.25s;
+    transform-style: preserve-3d;
+}
+
+.card-flipped {
+    transform: rotateY(-180deg)
+}
+
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    transform: rotateY(180deg);
+}
+
+.card-image {
+    height: 550px;
+    border: 2px solid black;
+    border-radius: 17px;
+    box-shadow: 0 0 20px white;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: 2px solid black;
+    border-radius: 17px;
+    box-shadow: 0 0 20px white;
+}
+
+.container img {
+    width: 225px;
+    user-select: none;
+}
+
+.container h1 {
+    font-size: 35px;
+    margin-top: 30px;
+}
+
+.container input {
+    background-color: #d2d2d2;
+    border: none;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 17px;
+    border-radius: 8px;
+    width: 80%;
+    outline: none;
+}
+
+.container div {
+    width: 80%;
+}
+
+.container div > input {
+    width: 100%;
+}
+
+.container i {
+    position: absolute;
+    margin-top: 16px;
+    right: 45px;
+    z-index: 1;
+    cursor: pointer;
+    user-select: none;
+}
+
+.ContainerNotice {
+    margin: 2.5px 0;
+    user-select: none;
+}
+
+.ContainerNotice :first-child{
+    font-weight: bold;
+}
+
+#ContainerSignup_Notice,
+#ContainerLogin_Notice {
+    visibility: hidden;
+}
+
+.container p {
+    text-align: center;
+}
+
+.container p > span {
+    font-size: 15px;
+}
+
+.container button {
+    background-color: #ff2200;
+    color: #fff;
+    font-size: 18px;
+    margin-top: 5px;
+    padding: 15px;
+    width: 80%;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+}
+
+.container a {  
+    font-size: 16px;
+    margin-top: 5px;
+    font-weight: normal;
+    cursor: pointer;
+    user-select: none;
+}
+
+a > span {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.container + .container {
+    display: none;
+}

@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --topbar-bottom-border: 4px solid rgb(228, 228, 235);
+    --sidebar-color: #2f346a;
+    --sidebar-width: 20%;
+    --actionbar-color: #494c6e;
+    --text-color: #c8c9cb;
+    --heightBar: 14%;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Montserrat;
+    user-select: none;
+}
+
+html, 
+body{
+    color: var(--text-color);
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+#ContainerMain {
+    width: 90%;
+    height: 100%;
+    background-color: rgb(178, 178, 216);
+}
+
+#ContainerMainPages {
+    height: calc(100% - var(--heightBar));
+}
+
+#ContainerMainPages * {
+    color:black;
+}
+
+/*
+    TopBar
+*/
+#ContainerTopBar {
+    display: flex;
+    align-items: center;
+    background-color: var(--actionbar-color);
+    height: var(--heightBar);
+    border-bottom: var(--topbar-bottom-border);
+}
+
+#imgIcon {
+    height: 90%;
+    margin: 5px;
+}
+
+#btnPlay {
+    background-color: white;
+    color: #555;
+    border: transparent;
+    border-radius: 5px;
+    padding: 12.5px 55px;
+    font-size: 35px;
+    font-weight: bold;
+    margin: 0 15px;
+    cursor: pointer;
+    transition: 0.2s box-shadow;
+}
+
+#btnPlay:hover{
+    box-shadow: 0 0 20px rgb(122, 122, 122);
+}
+
+#menuNavbar {
+    width: 25%;
+    height: 100%;
+    margin-left: 10px;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+li i {
+    margin-right: 1.5px;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+
+li:hover {
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 100%);
+    cursor: pointer;
+}
+
+#pUserBalance {
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    margin: 0 20px 0 auto;
+    background-color: #a9accb;
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    letter-spacing: 1.5px;
+}
+
+/*
+    SideBar
+*/
+
+#ContainerSidebar {
+    display: flex;
+    flex-direction: column;
+    width: var(--sidebar-width);
+    height: 100%;
+    background-color: var(--sidebar-color);
+}
+
+#ContainerPlayerInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: var(--heightBar);
+    /* background-color: red; */
+    border-bottom: var(--topbar-bottom-border);
+}
+
+#pPlayerName{
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+#pPlayerName,
+#ContainerPlayerStatus {
+    margin-left: 25px;
+}
+
+#ContainerPlayerStatus {
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 5px;
+    color: rgb(54, 218, 54);
+}
+
+#spanPlayerStatus {
+    margin-left: 5px;
+}
+
+#ContainerPlayerStatus,
+#ContainerActionButtons {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#ContainerActionButtons {
+    padding: 5px 0;
+}
+
+#ContainerActionButtons span {
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: auto;
+    font-size: 23px;
+    letter-spacing: 1px;
+}
+
+#ContainerActionButtons i {
+    margin-right: 5px;
+    font-size: 28px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#inputSearchName {
+    color: black;
+    height: 40px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    padding: 5px;
+}
+
+#ContainerFriendsList {
+    background: linear-gradient(0deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 30%);
+    flex: 1;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+#ContainerFriendsList::-webkit-scrollbar {
+    width: 7.5px;
+  }
+  
+#ContainerFriendsList::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+#ContainerFriendsList::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+#ContainerFriendsList::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.ContainerFriend {
+    margin: 5px 5px 0 5px;
+    border-radius: 5px;
+}
+
+.ContainerFriend {
+    margin: 5px 5px 0 5px;
+    padding: 7.5px;
+    border-radius: 5px;
+    background: #ffffff0d;
+}
+
+.ContainerFriend:hover {
+    cursor: pointer;
+    background: #ffffff11;
+}
+
+.pFriendName {
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.ContainerFriendStatus {
+    color: rgb(54, 218, 54);
+    display: flex;
+    align-items: center;
+    margin: 4px 0 0 0px;
+    font-weight: 500;
+}
+
+.ContainerFriendStatus.offline {
+    color: rgb(241, 52, 52);
+}
+
+.spanFriendStatus {
+    margin-left: 5px;
+    font-size: 18px;
+}
+
+/* 
+    FREIND MENU 
+*/
+
+#ContainerFriendReq,
+#ContainerPartyInvites {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #68686853;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    z-index: 2;
+}
+
+#ContainerFriendReq > div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    border: 3px solid black;
+    border-radius: 10px;
+    width: 50%;
+    height: 60%;
+}
+
+#FriendsReqExit {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 40px;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+#ContainerFriendReq h1 {
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 5px 5px 0 0;
+    background-color: #bbccfe;
+}
+
+#FriendsReqOptions {
+    display: flex;
+}
+
+#FriendsReqSent,
+#FriendsReqInc {
+    padding: 7px 0;
+    width: 50%;
+    text-align: center;
+    font-weight: 600;
+    font-size: 27px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    cursor: pointer;
+}
+
+#FriendsReqOptions .selected {
+    background-color: #b0adad;
+}
+
+#FriendsReqInc {
+    border-left: 2px solid black;
+}
+
+#FriendsReqSentContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex: 1 1 auto;
+}
+
+#FriendReqSend {
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+#FriendsReqInput {
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-bottom: 2px solid black;
+    font-weight: 600;
+    font-size: 22px;
+    text-indent: 5px;
+    outline: none;
+}
+
+.FriendsReqList {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    gap: 10px;
+    padding: 10px;
+}
+
+.FriendReqItem {
+    flex: 0 0 31.52%;
+    background-color: rgb(223, 223, 223);
+    padding: 10px 0 10px 10px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    height: fit-content;
+}
+
+.FriendReqItem p {
+    font-weight: 600;
+    margin-right: auto;
+}
+
+.FriendReqItem img {
+    width: 35px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+#ContainerFriendActions {
+    visibility: hidden;
+    padding: 5px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 2.5px black solid;
+    border-radius: 5px;
+}
+
+#ContainerFriendActions > div {
+    display: flex;
+    align-items: center;
+    margin: 2.5px 0;
+    width: 100%;
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 3px 10px;
+    box-sizing: border-box;
+    color: black;
+}
+
+#ContainerFriendActions > div:hover {
+    cursor: pointer;
+}
+
+#ContainerFriendActions p {
+    margin-left: 5px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+#ContainerPartyInvites > div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    border: 3px solid black;
+    border-radius: 10px;
+    width: 40%;
+    height: 50%;
+}
+
+#ContainerPartyInvites > div > :first-child {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px 5px 0 0;
+    box-sizing: border-box;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #888;
+    border-bottom: 3px solid black;
+}
+
+#ContainerPartyInvites_List {
+    flex: 1;
+    background-color: #c5c5c5;
+    border-radius: 0 0 5px 5px;
+    overflow-y: scroll;
+}
+
+#ContainerPartyInvites_List::-webkit-scrollbar {
+    width: 7.5px;
+  }
+  
+#ContainerPartyInvites_List::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+#ContainerPartyInvites_List::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+#ContainerPartyInvites_List::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.InviteItem {
+    flex: 0 0 31.52%;
+    background-color: rgb(229, 229, 229);
+    padding: 10px 0 10px 10px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.InviteItem p {
+    font-weight: 600;
+    font-size: 22px;
+    margin-right: auto;
+}
+
+.InviteItem img {
+    width: 35px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+#PartyInvitesExit {
+    width: 40px;
+    margin-left: auto;
+}
+
+#PartyInvitesExit:hover {
+    cursor: pointer;
+    border-radius: 50px;
+}
